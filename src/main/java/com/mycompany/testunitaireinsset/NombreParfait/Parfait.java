@@ -32,11 +32,13 @@ public class Parfait {
     long[] temp = new long[majorant];
     // Ajouter 1 qui est nécessairement un diviseur
     temp[0] = 1;
+    System.out.println(temp[0]);
     // Indice de temp où ajouter le prochain diviseur
     int position = 1;
     // Ajouter le nombre lui-même (sauf s'il est égal à 1 qui vient déjà d'être ajouté)
     if (val != 1) {
       temp[1] = val;
+      System.out.println(temp[1]);
       position++;
     }
     // Déclarer i en dehors de la boucle pour pouvoir 
@@ -50,7 +52,9 @@ public class Parfait {
       if (this.estDivisiblePar(i,val)) {
         // Si i divise val, val / i le divise aussi.
         temp[position] = i;
+        System.out.println(temp[position]);
         temp[position + 1] = val / i;
+        System.out.println(temp[position+1]);
         position = position + 2;
       }
     }
@@ -59,12 +63,15 @@ public class Parfait {
     // Dans ce cas, il faut ajouter i comme diviseur.
     if (i * i == val) {
       temp[position] = i;
+      System.out.println(temp[position]);
       position++;
     }
     // On a trouvé position diviseurs pour le nombre
     long[] diviseurs = new long[position];
     for (int j = 0; j < position; j++) {
       diviseurs[j] = temp[j];
+      System.out.println(diviseurs[j]);
+      
     }
     return diviseurs;
   }
